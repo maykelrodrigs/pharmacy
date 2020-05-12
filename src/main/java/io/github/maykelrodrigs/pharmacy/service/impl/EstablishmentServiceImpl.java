@@ -1,8 +1,8 @@
 package io.github.maykelrodrigs.pharmacy.service.impl;
 
 import io.github.maykelrodrigs.pharmacy.domain.Establishment;
-import io.github.maykelrodrigs.pharmacy.exception.BusinessException;
-import io.github.maykelrodrigs.pharmacy.exception.EntityNotFoundException;
+import io.github.maykelrodrigs.pharmacy.service.exception.BusinessException;
+import io.github.maykelrodrigs.pharmacy.service.exception.EntityNotFoundException;
 import io.github.maykelrodrigs.pharmacy.repository.EstablishmentRespository;
 import io.github.maykelrodrigs.pharmacy.service.EstablishmentService;
 import org.springframework.data.domain.Page;

@@ -1,5 +1,7 @@
-package io.github.maykelrodrigs.pharmacy.exception;
+package io.github.maykelrodrigs.pharmacy.controller.exception;
 
+import io.github.maykelrodrigs.pharmacy.service.exception.BusinessException;
+import io.github.maykelrodrigs.pharmacy.service.exception.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

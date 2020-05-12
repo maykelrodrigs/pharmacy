@@ -1,4 +1,4 @@
-package io.github.maykelrodrigs.pharmacy.exception;
+package io.github.maykelrodrigs.pharmacy.service.exception;
 
 public class EntityNotFoundException extends BusinessException {
 

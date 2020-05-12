@@ -1,4 +1,4 @@
-package io.github.maykelrodrigs.pharmacy.exception;
+package io.github.maykelrodrigs.pharmacy.controller.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
