@@ -39,7 +39,7 @@ public class EstablishmentApiController implements EstablishmentApi {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> remove(@PathVariable String id) {
+    public ResponseEntity<?> remove(@PathVariable String id) {
         establishmentService.remove(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
