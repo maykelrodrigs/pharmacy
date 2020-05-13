@@ -16,9 +16,10 @@ public class ApiError {
 
     private String type;
     private HttpStatus status;
+    private String title;
+    private String message;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private final LocalDateTime timestamp = LocalDateTime.now();
-    private String message;
     private List<Field> fields;
 
     @Getter

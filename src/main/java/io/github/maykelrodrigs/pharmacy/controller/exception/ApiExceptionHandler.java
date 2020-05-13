@@ -18,7 +18,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
@@ -47,11 +46,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers,
                                                              HttpStatus status, WebRequest request) {
-        if (Objects.isNull(body))
+        if (body == null)
             body = ApiError.builder()
                     .type(((ServletWebRequest)request).getRequest().getRequestURI())
                     .status(status)
                     .message(ex.getMessage())
+                    .title(status.getReasonPhrase())
                     .build();
 
         return super.handleExceptionInternal(ex, body, headers, status, request);
@@ -65,7 +65,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
         List<ApiError.Field> problemFields = bindingResult.getFieldErrors().stream()
                 .map(fieldError -> {
-                    String message = messageSource.getMessage(fieldError, Locale.ENGLISH);
+                    String message = messageSource.getMessage(fieldError, Locale.US);
                     return ApiError.Field.builder()
                             .name(fieldError.getField())
                             .message(message)
@@ -78,10 +78,10 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .status(status)
                 .message("validation field(s) failed")
                 .fields(problemFields)
+                .title(status.getReasonPhrase())
                 .build();
 
         return handleExceptionInternal(ex, body, headers, status, request);
-
     }
 
 }
